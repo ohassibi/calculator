@@ -10,7 +10,7 @@ public class Calculator {
     public static double operation () {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Which operation would you like to complete today?");
-        System.out.println("Type A for Addition, S for subtraction, M for multiplication:");
+        System.out.println("Type A for Addition, S for subtraction, M for multiplication, D for multiplication:");
         String operator = scanner.nextLine();
 
         String path;
@@ -23,6 +23,9 @@ public class Calculator {
         } else if (operator.equals("M")) {
             System.out.println("Multiplication it is!");
             path = "Multiplication";
+        } else if (operator.equals("D")) {
+            System.out.println("Division it is!");
+            path = "Division";
         } else {
             System.out.println("Please try again.");
             path = "Unknown";
@@ -44,12 +47,13 @@ public class Calculator {
         } else if (path.equals("Multiplication")) {
             value = multiplication(a, b);
             return value;
-        } 
-        else {
+        } else if (path.equals("Division")) {
+            value = division(a, b);
+        } else {
             System.out.println("Please run the program again and choose a valid response");
             return 0.0;
         }
-        
+        return value;
 
     }
     public static double addition (double a, double b) {
@@ -60,6 +64,9 @@ public class Calculator {
     }
     public static double multiplication (double a, double b) {
         return a * b;
+    }
+    public static double division (double a, double b) {
+        return a / b;
     }
 
 
